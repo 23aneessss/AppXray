@@ -17,7 +17,7 @@ public struct Finding: Sendable, Codable, Hashable {
 }
 
 /// A single entitlement claimed by the app's code signature, annotated with a
-/// friendly title and explanation drawn from the ``EntitlementsCatalog``.
+/// friendly title and explanation drawn from App X-Ray's entitlements catalog.
 public struct EntitlementFinding: Sendable, Codable, Hashable {
     /// The raw reverse-DNS entitlement key, e.g. `com.apple.security.app-sandbox`.
     public let key: String
