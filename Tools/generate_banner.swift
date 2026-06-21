@@ -77,7 +77,7 @@ draw("Independent privacy & capability auditor · 100% offline",
      color: dim, x: 92, y: 250)
 
 // Output
-let outDir = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent("docs")
+let outDir = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent("Docs")
 try? FileManager.default.createDirectory(at: outDir, withIntermediateDirectories: true)
 let outURL = outDir.appendingPathComponent("banner.png")
 

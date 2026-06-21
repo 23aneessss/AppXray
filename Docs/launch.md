@@ -93,10 +93,10 @@ Users then run: `brew install 23aneessss/tap/appxray`.
 Generate the on-brand banner from code:
 
 ```bash
-swift Tools/generate_banner.swift            # writes docs/banner.png
+swift Tools/generate_banner.swift            # writes Docs/banner.png
 ```
 
-Upload it in *Settings → Social preview*, and reference `docs/banner.png` in the
+Upload it in *Settings → Social preview*, and reference `Docs/banner.png` in the
 README if you like.
 
 ## Swift Package Index
