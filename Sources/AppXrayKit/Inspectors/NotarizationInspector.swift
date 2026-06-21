@@ -1,30 +1,24 @@
 import Foundation
 import Security
 
-/// Asks the system whether Gatekeeper would accept the app for execution, via
-/// `SecAssessmentCreate`.
+/// Asks the system whether Gatekeeper would accept the app for execution.
 ///
-/// Note: this reflects the machine's *current* assessment policy. The
-/// authoritative notarization signal is the `SecRequirement("notarized")` check
-/// in ``SignatureInspector`` — `spctl`/assessment can be locally overridden
-/// (see Appendix A.4), so App X-Ray reports the two separately.
+/// The `SecAssessment` C API is not exposed to Swift, so this uses the
+/// documented `spctl --assess` fallback. Note this reflects the machine's
+/// *current* assessment policy — the authoritative notarization signal is the
+/// native `SecRequirement("notarized")` check in ``SignatureInspector`` (see
+/// Appendix A.4: `spctl` can be locally overridden, so the two are reported
+/// separately).
 struct NotarizationInspector {
 
     let bundleURL: URL
 
     /// Whether Gatekeeper would currently accept this app for execution.
     func gatekeeperAccepts() -> Bool {
-        let context: [CFString: Any] = [
-            kSecAssessmentContextKeyOperation: kSecAssessmentOperationTypeExecute
-        ]
-        var error: Unmanaged<CFError>?
-        let assessment = SecAssessmentCreate(
-            bundleURL as CFURL,
-            SecAssessmentFlags(kSecAssessmentDefaultFlags),
-            context as CFDictionary,
-            &error
-        )
-        if let error { error.release() }
-        return assessment != nil
+        guard let result = Shell.run("/usr/sbin/spctl",
+                                     ["--assess", "--type", "execute", bundleURL.path]) else {
+            return false
+        }
+        return result.status == 0
     }
 }

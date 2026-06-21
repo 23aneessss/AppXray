@@ -13,9 +13,12 @@ struct MachOReader {
         var libraries: [LinkedLibrary]
     }
 
-    // Magic numbers
+    // Magic numbers. Fat headers are always big-endian on disk, so on a
+    // little-endian host a raw read sees the byte-swapped (CIGAM) form too.
     private static let FAT_MAGIC: UInt32 = 0xcafe_babe
+    private static let FAT_CIGAM: UInt32 = 0xbeba_feca
     private static let FAT_MAGIC_64: UInt32 = 0xcafe_babf
+    private static let FAT_CIGAM_64: UInt32 = 0xbfba_feca
     private static let MH_MAGIC: UInt32 = 0xfeed_face
     private static let MH_MAGIC_64: UInt32 = 0xfeed_facf
     private static let MH_CIGAM: UInt32 = 0xcefa_edfe
@@ -42,9 +45,10 @@ struct MachOReader {
         let magic = data.u32(at: 0, bigEndian: false) ?? 0
 
         var sliceOffsets: [Int] = []
-        if magic == Self.FAT_MAGIC || magic == Self.FAT_MAGIC_64 {
+        let isFat = [Self.FAT_MAGIC, Self.FAT_CIGAM, Self.FAT_MAGIC_64, Self.FAT_CIGAM_64].contains(magic)
+        if isFat {
             // Fat headers are big-endian on disk.
-            let is64 = (magic == Self.FAT_MAGIC_64)
+            let is64 = (magic == Self.FAT_MAGIC_64 || magic == Self.FAT_CIGAM_64)
             guard let nArch = data.u32(at: 4, bigEndian: true) else { return nil }
             var cursor = 8
             for _ in 0..<min(nArch, 64) {

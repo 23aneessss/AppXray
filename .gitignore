@@ -1,2 +1,19 @@
+# macOS
+.DS_Store
 .DS_store
+
+# Claude / build brief (kept local)
 .claude/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# Xcode
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Generated app (xcodegen)
+App/AppXray.xcodeproj/

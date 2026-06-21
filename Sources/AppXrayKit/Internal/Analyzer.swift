@@ -132,7 +132,7 @@ struct Analyzer {
         let canMic = has("com.apple.security.device.microphone")
             || has("com.apple.security.device.audio-input") || usage("Microphone")
         let canControlApps = has("com.apple.security.automation.apple-events") || usage("Automation")
-        let linksPrivate = libraries.contains(\.isPrivateFramework)
+        let linksPrivate = libraries.contains { $0.isPrivateFramework }
         let installsBackground = !persistence.bundledLaunchAgents.isEmpty
             || !persistence.bundledLaunchDaemons.isEmpty || !persistence.loginItems.isEmpty
 
@@ -210,8 +210,11 @@ struct Analyzer {
                 risk: .notable))
         }
 
-        // Surface high-risk entitlements as explicit warnings.
+        // Surface high-risk entitlements as explicit warnings (deduped by family,
+        // e.g. multiple temporary-exception keys collapse to one warning).
+        var seenHighTitles = Set<String>()
         for finding in entitlementFindings where finding.risk == .high {
+            guard seenHighTitles.insert(finding.title).inserted else { continue }
             warnings.append(Finding(title: finding.title, detail: finding.explanation, risk: .high))
         }
 
