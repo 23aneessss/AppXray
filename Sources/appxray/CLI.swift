@@ -98,23 +98,22 @@ enum CLI {
         }
 
         print(palette.bold("Scanning \(apps.count) apps in /Applications…\n"))
-        let header = String(format: "%-32@ %-12@ %-10@ %-9@ %@", "" as CVarArg, "" as CVarArg, "" as CVarArg, "" as CVarArg, "")
-        _ = header
-        print(String(format: "%-32s %-12s %-10s %-9s %s",
-                     strdup("APP"), strdup("SIGNING"), strdup("SANDBOX"), strdup("NOTARY"), strdup("FLAGS")))
+        func row(_ a: String, _ b: String, _ c: String, _ d: String, _ e: String) -> String {
+            pad(a, 32) + pad(b, 12) + pad(c, 10) + pad(d, 9) + e
+        }
+        print(palette.bold(row("APP", "SIGNING", "SANDBOX", "NOTARY", "FLAGS")))
         print(String(repeating: "─", count: 78))
 
         var highRiskCount = 0
         for app in apps {
             guard let report = try? AppXray.analyze(bundleAt: app) else { continue }
             if report.highestRisk == .high { highRiskCount += 1 }
-            let name = String(report.name.prefix(31))
-            let signing = signingShort(report.signature.kind)
-            let sandbox = report.isSandboxed ? "yes" : "no"
             let notary = report.isNotarized ? "yes" : (report.signature.kind == .appleSystem ? "—" : "no")
-            let flags = flagsSummary(report)
-            let line = String(format: "%-32s %-12s %-10s %-9s %s",
-                              strdup(name), strdup(signing), strdup(sandbox), strdup(notary), strdup(flags))
+            let line = row(String(report.name.prefix(31)),
+                           signingShort(report.signature.kind),
+                           report.isSandboxed ? "yes" : "no",
+                           notary,
+                           flagsSummary(report))
             print(report.highestRisk == .high ? palette.red(line) : line)
         }
 
@@ -148,6 +147,12 @@ enum CLI {
     // MARK: - Help
 
     static func isTTY() -> Bool { isatty(fileno(stdout)) == 1 }
+
+    /// Left-justify `s` in a field of `width` columns (truncating if needed).
+    static func pad(_ s: String, _ width: Int) -> String {
+        if s.count >= width { return String(s.prefix(width - 1)) + " " }
+        return s + String(repeating: " ", count: width - s.count)
+    }
 
     static func printUsage() {
         print("""
