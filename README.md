@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="Docs/banner.png" alt="App X-Ray — see what a Mac app can really do" width="100%">
+
 # App X-Ray
 
 ### An independent privacy & capability auditor for macOS apps — read what an app can *really* do, offline.
