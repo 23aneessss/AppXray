@@ -1,0 +1,487 @@
+{
+  "architectures" : [
+    "x86_64",
+    "arm64e"
+  ],
+  "associatedDomains" : [
+
+  ],
+  "badges" : [
+    {
+      "isOn" : true,
+      "label" : "Sandboxed",
+      "risk" : "info"
+    },
+    {
+      "isOn" : false,
+      "label" : "Notarized",
+      "risk" : "notable"
+    },
+    {
+      "isOn" : false,
+      "label" : "Hardened Runtime",
+      "risk" : "notable"
+    },
+    {
+      "isOn" : false,
+      "label" : "Can record screen",
+      "risk" : "info"
+    },
+    {
+      "isOn" : false,
+      "label" : "Can access camera",
+      "risk" : "info"
+    },
+    {
+      "isOn" : false,
+      "label" : "Can access microphone",
+      "risk" : "info"
+    },
+    {
+      "isOn" : false,
+      "label" : "Can control other apps",
+      "risk" : "info"
+    },
+    {
+      "isOn" : true,
+      "label" : "Links private frameworks",
+      "risk" : "notable"
+    },
+    {
+      "isOn" : false,
+      "label" : "Installs background items",
+      "risk" : "info"
+    },
+    {
+      "isOn" : true,
+      "label" : "Universal binary",
+      "risk" : "info"
+    }
+  ],
+  "bundleID" : "com.apple.calculator",
+  "bundlePath" : "/System/Applications/Calculator.app",
+  "entitlements" : [
+    {
+      "explanation" : "The app uses a sandbox temporary exception to reach something the sandbox would normally block — effectively a sanctioned sandbox escape.",
+      "key" : "com.apple.security.temporary-exception.mach-lookup.global-name",
+      "risk" : "high",
+      "title" : "Sandbox temporary exception",
+      "valueDescription" : "3 items"
+    },
+    {
+      "explanation" : "The app uses a sandbox temporary exception to reach something the sandbox would normally block — effectively a sanctioned sandbox escape.",
+      "key" : "com.apple.security.temporary-exception.files.absolute-path.read-only",
+      "risk" : "high",
+      "title" : "Sandbox temporary exception",
+      "valueDescription" : "1 item"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "user-preference-write",
+      "risk" : "info",
+      "title" : "user-preference-write",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "user-preference-read",
+      "risk" : "info",
+      "title" : "user-preference-read",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "file-write-data",
+      "risk" : "info",
+      "title" : "file-write-data",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "file-read-data",
+      "risk" : "info",
+      "title" : "file-read-data",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "The app can print.",
+      "key" : "com.apple.security.print",
+      "risk" : "info",
+      "title" : "Printing",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "The app can open outbound network connections (e.g. talk to servers on the internet).",
+      "key" : "com.apple.security.network.client",
+      "risk" : "info",
+      "title" : "Outgoing network connections",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "The app can read and write files the user explicitly chooses.",
+      "key" : "com.apple.security.files.user-selected.read-write",
+      "risk" : "info",
+      "title" : "User-selected files (read/write)",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "com.apple.security.exception.shared-preference.read-write",
+      "risk" : "info",
+      "title" : "com.apple.security.exception.shared-preference.read-write",
+      "valueDescription" : "1 item"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "com.apple.security.exception.shared-preference.read-only",
+      "risk" : "info",
+      "title" : "com.apple.security.exception.shared-preference.read-only",
+      "valueDescription" : "1 item"
+    },
+    {
+      "explanation" : "The app runs inside Apple's sandbox, which restricts what files, hardware, and services it can reach without explicit entitlements.",
+      "key" : "com.apple.security.app-sandbox",
+      "risk" : "info",
+      "title" : "App Sandbox",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "com.apple.runningboard.terminateprocess",
+      "risk" : "info",
+      "title" : "com.apple.runningboard.terminateprocess",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "com.apple.private.hid.client.event-dispatch.internal",
+      "risk" : "info",
+      "title" : "com.apple.private.hid.client.event-dispatch.internal",
+      "valueDescription" : "true"
+    },
+    {
+      "explanation" : "Entitlement not in App X-Ray's catalog; listed for transparency.",
+      "key" : "com.apple.private.coreservices.canmaplsdatabase",
+      "risk" : "info",
+      "title" : "com.apple.private.coreservices.canmaplsdatabase",
+      "valueDescription" : "true"
+    }
+  ],
+  "gatekeeperAccepted" : true,
+  "isNotarized" : false,
+  "isSandboxed" : true,
+  "linkedLibraries" : [
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/Accessibility.framework/Versions/A/Accessibility"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/AppIntents.framework/Versions/A/AppIntents"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/Combine.framework/Versions/A/Combine"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/DeveloperToolsSupport.framework/Versions/A/DeveloperToolsSupport"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/Network.framework/Versions/A/Network"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/SwiftUI.framework/Versions/A/SwiftUI"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/Frameworks/TipKit.framework/Versions/A/TipKit"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/Calculate.framework/Versions/A/Calculate"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/CalculateUI.framework/Versions/A/CalculateUI"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags"
+    },
+    {
+      "isPrivateFramework" : true,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/System/Library/PrivateFrameworks/TextInputUI.framework/Versions/A/TextInputUI"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/libSystem.B.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/libobjc.A.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftAccelerate.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftCore.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftCoreAudio.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftCoreFoundation.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftCoreImage.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftCoreLocation.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftCoreMIDI.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftDispatch.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftIOKit.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftIntents.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftMetal.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftOSLog.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftObjectiveC.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftObservation.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftQuartzCore.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftSpatial.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftXPC.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswift_Builtin_float.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswift_Concurrency.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswift_StringProcessing.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : false,
+      "path" : "/usr/lib/swift/libswiftos.dylib"
+    },
+    {
+      "isPrivateFramework" : false,
+      "isSystem" : true,
+      "isWeak" : true,
+      "path" : "/usr/lib/swift/libswiftsimd.dylib"
+    }
+  ],
+  "minimumOS" : "26.3",
+  "name" : "Calculator",
+  "nestedComponents" : [
+    {
+      "kind" : "Plug-in",
+      "path" : "Contents/PlugIns/CalculatorWidget.appex",
+      "sandboxed" : true,
+      "signingSummary" : "Apple system"
+    }
+  ],
+  "networkHints" : [
+    "http://crl.apple.com",
+    "http://www.apple.com",
+    "https://www.apple.com"
+  ],
+  "privacyUsage" : [
+
+  ],
+  "privateFrameworks" : [
+    "/System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities",
+    "/System/Library/PrivateFrameworks/Calculate.framework/Versions/A/Calculate",
+    "/System/Library/PrivateFrameworks/CalculateUI.framework/Versions/A/CalculateUI",
+    "/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics",
+    "/System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags",
+    "/System/Library/PrivateFrameworks/TextInputUI.framework/Versions/A/TextInputUI"
+  ],
+  "signature" : {
+    "authorities" : [
+      "Software Signing",
+      "Apple Code Signing Certification Authority",
+      "Apple Root CA"
+    ],
+    "hardenedRuntime" : false,
+    "isDebuggable" : false,
+    "kind" : "appleSystem",
+    "signingIdentifier" : "com.apple.calculator"
+  },
+  "urlSchemes" : [
+
+  ],
+  "version" : "12.0 (225)",
+  "warnings" : [
+    {
+      "detail" : "The app uses a sandbox temporary exception to reach something the sandbox would normally block — effectively a sanctioned sandbox escape.",
+      "risk" : "high",
+      "title" : "Sandbox temporary exception"
+    }
+  ]
+}
