@@ -135,20 +135,37 @@ App X-Ray prefers **native Apple APIs** over shelling out:
 
 The reusable engine lives in **`AppXrayKit`** — fully testable, `Sendable` + `Codable` models, `os.Logger` throughout, no force-unwraps in public API, **zero third-party runtime dependencies**.
 
+## Desktop app (GUI)
+
+A SwiftUI app built on the same engine lives in [`App/`](App/). Browse a
+searchable list of installed apps (or drag any `.app` onto the window), read a
+polished report — header, colour-coded capability badges, and expandable
+sections for entitlements, privacy, private frameworks, nested components, and
+network hints — then export to Markdown or JSON. It is intentionally **not
+sandboxed** (it must read other apps' bundles) and uses a security-scoped open
+panel.
+
+```bash
+cd App
+xcodegen generate          # generates App/AppXray.xcodeproj from project.yml
+open AppXray.xcodeproj      # build & run in Xcode (⌘R)
+```
+
 ## Project layout
 
 ```
-AppXrayKit/   reusable analysis engine (the technical centrepiece)
-appxray/      the CLI (zero-dependency arg parsing, colour, JSON/Markdown export)
-Examples/     real sample reports for well-known apps
-Tests/        unit tests over fixtures + pure logic
-Docs/         usage manual + launch guide
+Sources/AppXrayKit/   reusable analysis engine (the technical centrepiece)
+Sources/appxray/      the CLI (zero-dependency arg parsing, colour, JSON/Markdown export)
+App/                  SwiftUI GUI (xcodegen project.yml + sources)
+Examples/             real sample reports for well-known apps
+Tests/                unit tests over fixtures + pure logic
+Docs/                 usage manual + launch guide
 ```
 
 ## Roadmap
 
-- **v0.1** — `AppXrayKit` + `appxray` CLI (this release)
-- **v0.2** — SwiftUI GUI (drag-drop a `.app`, browse installed apps, export) — *Phase 2*
+- **v0.1** — `AppXrayKit` + `appxray` CLI + SwiftUI GUI (this release)
+- **v0.2** — GUI polish: report diffing, deep-link to nested components
 - **v0.3** — optional, clearly-labelled runtime network observation module
 - Swift Package Index submission · Homebrew tap · DocC on GitHub Pages
 

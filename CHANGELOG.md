@@ -7,12 +7,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Planned
-- SwiftUI GUI (drag-drop a `.app`, browse installed apps, export) — Phase 2.
+- GUI polish: report diffing and deep-linking into nested components.
 - Optional, clearly-labelled runtime network-observation module.
 
 ## [0.1.0] — 2026-06-21
 
-The first public release: the `AppXrayKit` analysis engine and the `appxray` CLI.
+The first public release: the `AppXrayKit` analysis engine, the `appxray` CLI,
+and a SwiftUI desktop app.
 
 ### Added
 - **`AppXrayKit`** — a reusable, dependency-free static analysis engine with
@@ -35,6 +36,10 @@ The first public release: the `AppXrayKit` analysis engine and the `appxray` CLI
 - **`appxray` CLI** — colour-coded terminal report, `--json`, `--markdown`,
   `--out`, `--no-color`/`NO_COLOR`, and `--installed`; non-zero exit on a
   high-risk flag for CI gating. Zero third-party dependencies.
+- **SwiftUI desktop app** (`App/`, generated with xcodegen) — searchable list of
+  installed apps, drag-and-drop, a polished report view with capability badges
+  and expandable sections, and Markdown/JSON export. Intentionally un-sandboxed
+  with a security-scoped open panel.
 - Unit tests over fixtures and pure logic; CI and DocC GitHub Actions workflows.
 - Documentation: README, DocC catalog, usage manual, and launch guide.
 
