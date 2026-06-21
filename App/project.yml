@@ -1,0 +1,45 @@
+name: AppXray
+options:
+  bundleIdPrefix: dev.appxray
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+
+packages:
+  AppXrayKit:
+    path: ..
+
+targets:
+  AppXray:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+    dependencies:
+      - package: AppXrayKit
+        product: AppXrayKit
+    info:
+      path: Generated/Info.plist
+      properties:
+        CFBundleDisplayName: App X-Ray
+        CFBundleName: App X-Ray
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        LSMinimumSystemVersion: "13.0"
+        NSHumanReadableCopyright: "© 2026 23aneessss · MIT"
+        NSMainStoryboardFile: ""
+        LSApplicationCategoryType: public.app-category.developer-tools
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.appxray.gui
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.9"
+        # Intentionally NOT sandboxed: App X-Ray reads other apps' bundles and
+        # signatures. The GUI uses a security-scoped NSOpenPanel instead.
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: NO
+        COMBINE_HIDPI_IMAGES: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_ALLOWED: NO
